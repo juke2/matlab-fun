@@ -1,17 +1,19 @@
 1; #needed so it can be run (otherwise considered a function file)
 
-function estimated_root = bisection(f, a, b, iter)
+function estimated_root = bisection(f, a, b, iter, TOLERANCE)
+    fofa = f(a);
     for i = 1:iter
         estimated_root = (a + b)/2;
-        fofa = f(a);
         fofmid = f(estimated_root);
-        if(not(xor(fofmid < 0,  fofa < 0)))
-            a = estimated_root;
-        else
+        if(abs(fofmid) < TOLERANCE)
+            return
+        elseif(xor(fofmid < 0,  fofa < 0))
             b = estimated_root;
+        else
+            a = estimated_root;
+            fofa = fofmid;
         endif
     endfor
-    
 endfunction
 
 function y = test_f(x)
@@ -25,9 +27,9 @@ endfunction
 function main ()
     test_f(2)
     test_f(-1)
-    bisection(@test_f,2.92332,0.613213123,10)
-    bisection(@f,2,4,100)
-    bisection(@f,5,7,100) 
+    bisection(@test_f,2.92332,0.613213123,10,eps)
+    bisection(@f,2,4,100,eps)
+    bisection(@f,5,7,100,eps) 
     
 endfunction
 
