@@ -14,6 +14,12 @@ function main ()
     bisection(@test_f,2.92332,0.613213123,10,eps)
     bisection(@f,2,4,100,eps)
     bisection(@f,5,7,100,eps) 
+    falseposition(@test_f,2.92332,0.613213123,10,eps)
+    falseposition(@f,2,4,100,eps)
+    falseposition(@f,5,7,100,eps) 
+    modified_falseposition(@test_f,2.92332,0.613213123,10,eps)
+    modified_falseposition(@f,2,4,100,eps)
+    modified_falseposition(@f,5,7,100,eps) 
 endfunction
 
 main;

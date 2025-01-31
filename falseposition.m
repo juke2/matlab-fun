@@ -1,8 +1,8 @@
-function x falseposition(f, a, b, iter, TOLERANCE)
+function estimated_root = falseposition(f, a, b, iter, TOLERANCE)
     fofa = f(a);
     fofb = f(b);
     for i = 1:iter
-        estimated_root = (b * f_a - a * f_b) / (f_a = f_b);
+        estimated_root = (b * fofa - a * fofb) / (fofa - fofb);
         fofmid = f(estimated_root);
         if(abs(fofmid) < TOLERANCE)
             return
