@@ -1,15 +1,20 @@
-function estimated_root = bisection(f, a, b, iter, TOLERANCE)
+function [fofmid,root,iters] = bisection(f, a, b, iter, TOLERANCE)
+    fofmid = [];
+    root = [];
+    iters = [];
     fofa = f(a);
     for i = 1:iter
-        estimated_root = (a + b)*0.5;
-        fofmid = f(estimated_root);
-        if(abs(fofmid) < TOLERANCE)
+        root(i) = (a + b)*0.5;
+        iters(i) = i;
+        fofmid(i) = f(root(i));
+        if(abs(fofmid(i)) < TOLERANCE)
             return
-        elseif(xor(fofmid < 0,  fofa < 0))
-            b = estimated_root;
+        elseif(xor(fofmid(i) < 0,  fofa < 0))
+            b = root(i);
+
         else
-            a = estimated_root;
-            fofa = fofmid;
+            a = root(i);
+            fofa = fofmid(i);
         endif
     endfor
 endfunction
