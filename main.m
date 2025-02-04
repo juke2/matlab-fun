@@ -1,7 +1,12 @@
+# main.m
 1; #needed so it can be run (otherwise considered a function file)
 
 function y = test_f(x)
     y = x.^2.- x - 2;
+endfunction
+
+function [fofmid,root,iters] = illonois(f, a, b, iter, TOLERANCE) #macro
+    [fofmid,root,iters] = modified_falseposition(f,a,b,iter,TOLERANCE);
 endfunction
 
 function dy_dx = d_test_f(x)

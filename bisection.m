@@ -1,3 +1,4 @@
+#bisection.m
 function [fofmid,root,iters] = bisection(f, a, b, iter, TOLERANCE)
     fofmid = [];
     root = [];

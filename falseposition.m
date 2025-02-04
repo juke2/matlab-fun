@@ -1,3 +1,4 @@
+#falseposition.m
 function [fofmid,root,iters] = falseposition(f, a, b, iter, TOLERANCE)
     fofa = f(a);
     fofb = f(b);

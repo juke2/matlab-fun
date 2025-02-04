@@ -1,3 +1,4 @@
+#modified_falseposition.m
 function [fofmid,root,iters] =  modified_falseposition(f, a, b, iter, TOLERANCE)
     fofa = f(a);
     fofb = f(b);
